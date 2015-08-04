@@ -1,0 +1,5 @@
+vendor
+node_modules
+package.json
+composer.lock
+assets/executor.bundle.js
