@@ -1,5 +1,7 @@
 # PHP Babel Transpiler
 
+[![Build Status](https://travis-ci.org/talyssonoc/php-babel-transpiler.svg)](https://travis-ci.org/talyssonoc/php-babel-transpiler)
+
 Transform JavaScript with [Babel](https://babeljs.io/) from PHP.
 
 ## Installation
