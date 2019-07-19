@@ -15,8 +15,11 @@
         "phpunit/phpunit": "~4.0.0@stable"
     },
     "scripts": {
-        "post-install-cmd": "\"node_modules/.bin/browserify\" \"src/executor.js\" > assets/executor.bundle.js",
-        "post-update-cmd": "\"node_modules/.bin/browserify\" \"src/executor.js\" > assets/executor.bundle.js"
+	"regenerate_executor": [
+	    "\"node_modules/.bin/browserify\" \"src/executor.js\" > assets/executor.bundle.js"
+	],
+        "post-install-cmd": "@regenerate_executor",
+        "post-update-cmd": "@regenerate_executor"
     },
     "license": "MIT",
     "authors": [
