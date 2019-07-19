@@ -8,7 +8,7 @@
     "extra": {
         "require-npm": {
             "babel-core": "^6",
-            "browserify": "^13"
+            "browserify": "^11"
         }
     },
     "require-dev": {
