@@ -19,17 +19,19 @@ class Transpiler {
         // Check `src/executor.js`.
         self::$v8->sourceCode = $sourceCode;
         self::$v8->babelOptions = $options;
-
+        $transpiled_str = false;
+	    ob_start();
         try {
-            ob_start();
             self::$v8->executeString(self::$babel);
-            return ob_get_contents();
+            $transpiled_str = ob_get_contents();
         }
         catch(\V8JsException $e) {
             ob_end_clean();
             echo $e->getMessage();
             return '';
         }
+	    ob_end_clean();
+        return $transpiled_str;
     }
 
     /**
