@@ -14,7 +14,6 @@ class Transpiler {
      */
     public static function transform($sourceCode, $options = []) {
         $options = array_merge($options, [ 'ast' => false ]);
-
         // The compiled bundle will use this attributes as
         // `PHP.sourceCode` and `PHP.babelOptions`.
         // Check `src/executor.js`.
