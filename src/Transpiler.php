@@ -11,6 +11,7 @@ class Transpiler {
      * @param  string $sourceCode Source code to transform
      * @param array $options Associative array of options that will be passed to Babel
      * @return string             Transformed source code
+     * @throws \V8JsException
      */
     public static function transform($sourceCode, $options = []) {
         $options = array_merge($options, [ 'ast' => false ]);
@@ -26,11 +27,10 @@ class Transpiler {
             $transpiled_str = ob_get_contents();
         }
         catch(\V8JsException $e) {
+           throw $e;
+        } finally {
             ob_end_clean();
-            echo $e->getMessage();
-            return '';
         }
-	    ob_end_clean();
         return $transpiled_str;
     }
 
@@ -45,8 +45,7 @@ class Transpiler {
             $fileContent = file_get_contents($filePath);
         }
         catch(\Exception $e) {
-            echo $e->getMessage();
-            return '';
+            throw $e;
         }
 
         return self::transform($fileContent, $options);
