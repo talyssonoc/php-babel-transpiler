@@ -4,7 +4,7 @@ namespace Babel;
 
 use \V8JsException;
 use \ErrorException;
-use V8Js;
+use \V8Js;
 
 class Transpiler {
     public static $v8;
