@@ -10,7 +10,8 @@
             "@babel/core": "*",
             "@babel/preset-env":"*",
             "browserify": "^16",
-            "@babel/preset-react":"*"
+            "@babel/preset-react":"*",
+            "@babel/plugin-syntax-dynamic-import": "*"
         }
     },
     "require-dev": {
