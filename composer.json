@@ -3,7 +3,7 @@
     "description": "Transform JavaScript with Babel from PHP",
     "require": {
         "ext-v8js": ">=0.1.3",
-        "koala-framework/composer-extra-assets": "~1.1"
+        "koala-framework/composer-extra-assets": "*"
     },
     "extra": {
         "require-npm": {
