@@ -18,6 +18,16 @@ You can see how to install it here: [how to install V8Js](https://github.com/tal
   php composer.phar require talyssonoc/php-babel-transpiler
 ```
 
+Since changes in composer , now impossible to run scripts from package, so you need to add this section in your ROOT composer.json:
+
+```sh
+"scripts": {
+    "post-install-cmd":"\"vendor/talyssonoc/php-babel-transpiler/node_modules/.bin/browserify\" \"vendor/talyssonoc/php-babel-transpiler/src/executor.js\" > vendor/talyssonoc/php-babel-transpiler/assets/executor.bundle.js",
+    "post-update-cmd":"\"vendor/talyssonoc/php-babel-transpiler/node_modules/.bin/browserify\" \"vendor/talyssonoc/php-babel-transpiler/src/executor.js\" > vendor/talyssonoc/php-babel-transpiler/assets/executor.bundle.js"
+}
+```
+to build executor bundle.
+
 ## Usage
 
 ```php

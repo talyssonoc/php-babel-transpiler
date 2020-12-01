@@ -3,19 +3,26 @@
     "description": "Transform JavaScript with Babel from PHP",
     "require": {
         "ext-v8js": ">=0.1.3",
-        "koala-framework/composer-extra-assets": "~1.1"
+        "koala-framework/composer-extra-assets": "*"
     },
     "extra": {
         "require-npm": {
-            "babel-core": "^5.8.20",
-            "browserify": "^11.0.1"
+            "@babel/core": "*",
+            "@babel/preset-env":"*",
+            "browserify": "^16",
+            "@babel/preset-react":"*",
+            "@babel/plugin-syntax-dynamic-import": "*"
         }
     },
     "require-dev": {
         "phpunit/phpunit": "~4.0.0@stable"
     },
     "scripts": {
-        "post-install-cmd": "\"node_modules/.bin/browserify\" \"src/executor.js\" > assets/executor.bundle.js"
+	"regenerate_executor": [
+	    "\"node_modules/.bin/browserify\" \"src/executor.js\" > assets/executor.bundle.js"
+	],
+        "post-install-cmd": "@regenerate_executor",
+        "post-update-cmd": "@regenerate_executor"
     },
     "license": "MIT",
     "authors": [
